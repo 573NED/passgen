@@ -20,21 +20,30 @@ def generate_strong_password():
     return ''.join(random.choice(characters) for _ in range(random.randint(9, 12)))
 
 def main():
-    print("Выберите тип пароля:")
-    print("1. Простой пароль (8 символов, строчные буквы и 2 цифры)")
-    print("2. Сложный пароль (9-12 символов с прописными и строчными буквами, цифрами, спец символами: /, ., , или _)")
+    first_time = True
 
-    choice = input("Введите номер выбора (1 или 2): ")
+    while True:
+        if first_time:
+            print("Выберите тип пароля:")
+            print("1. Простой пароль (8 символов, строчные буквы и 2 цифры)")
+            print("2. Сложный пароль (9-12 символов с прописными и строчными буквами, цифрами, спец символами: /, ., , или _)")
+            print("0. Выйти")
+            first_time = False
 
-    if choice == "1":
-        password = generate_simple_password()
-    elif choice == "2":
-        password = generate_strong_password()
-    else:
-        print("Неверный выбор. Пожалуйста, введите 1 или 2.")
-        return
+        choice = input("Введите номер выбора (0, 1 или 2): ")
 
-    print(f"Ваш пароль: {password}")
+        if choice == "0":
+            print("Выход из программы.")
+            break
+        elif choice == "1":
+            password = generate_simple_password()
+        elif choice == "2":
+            password = generate_strong_password()
+        else:
+            print("Неверный выбор. Пожалуйста, введите 0, 1 или 2.")
+            continue
+
+        print(f"Ваш пароль: {password}")
 
 if __name__ == "__main__":
     main()
