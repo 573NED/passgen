@@ -3,7 +3,7 @@ import string
 
 def generate_simple_password():
     characters = string.ascii_letters + string.digits
-    return ''.join(random.choice(characters) for _ in range(8))
+    return ''.join(random.choice(string.ascii_letters) for _ in range(8))
 
 def generate_strong_password():
     characters = string.ascii_letters + string.digits + string.punctuation
@@ -11,7 +11,7 @@ def generate_strong_password():
 
 def main():
     print("Выберите тип пароля:")
-    print("1. Простой пароль (8 символов, только прописные буквы и цифры)")
+    print("1. Простой пароль (8 символов, только прописные буквы)")
     print("2. Сложный пароль (9-12 символов с прописными, заглавными буквами, цифрами и спец символами)")
 
     choice = input("Введите номер выбора (1 или 2): ")
