@@ -1,5 +1,6 @@
 import random
 import string
+import pyperclip
 
 def generate_simple_password():
     lowercase_letters = string.ascii_lowercase
@@ -43,7 +44,8 @@ def main():
             print("Неверный выбор. Пожалуйста, введите 0, 1 или 2.")
             continue
 
-        print(f"Ваш пароль: {password}")
+        pyperclip.copy(password)
+        print(f"Ваш пароль: {password} (скопирован в буфер обмена)")
 
 if __name__ == "__main__":
     main()
